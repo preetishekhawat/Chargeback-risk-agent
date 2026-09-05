@@ -2,7 +2,7 @@
 Streamlit demo: pick a transaction from the test set, see its risk
 score, top contributing factors, and the escalate/resolve decision.
 
-Run with: streamlit run src/app.py
+Run with: streamlit run src/pipeline/app.py
 """
 
 import streamlit as st
@@ -60,8 +60,8 @@ with col1:
 with col2:
     st.markdown("**Case details**")
     display_cols = [c for c in df.columns if c not in ["risk_score", "decision", "actual_disputed"]]
-    st.dataframe(row[display_cols], use_container_width=True)
+    st.dataframe(row[display_cols].astype(str), width="stretch")
 
 st.markdown("---")
 st.markdown("### Full audit trail (first 200 rows)")
-st.dataframe(df.head(200), use_container_width=True)
+st.dataframe(df.head(200), width="stretch")
