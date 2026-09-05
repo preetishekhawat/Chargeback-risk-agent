@@ -1,0 +1,9 @@
+venv/
+data/raw/*.csv
+data/processed/*.csv
+models/*.pkl
+logs/*.csv
+!logs/decision_audit_trail.csv
+__pycache__/
+*.pyc
+.DS_Store
